@@ -1,0 +1,3 @@
+description = "Run intelligent code review routing via review-cli"
+prompt = """Run review-cli with the following arguments: {{args}}
+If no arguments provided, run: review-cli --staged"""

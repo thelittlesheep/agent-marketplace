@@ -1,0 +1,11 @@
+{
+  "name": "social-reader",
+  "version": "1.0.0",
+  "description": "Fetch and read social media posts from X/Twitter and Threads",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["social-media", "twitter", "threads", "x"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

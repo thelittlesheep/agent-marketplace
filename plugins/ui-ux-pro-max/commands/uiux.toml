@@ -1,0 +1,2 @@
+description = "Search UI/UX design database via uiux-cli"
+prompt = """Run uiux-cli search with the following arguments: {{args}}"""

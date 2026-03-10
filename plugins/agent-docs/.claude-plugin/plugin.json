@@ -1,0 +1,11 @@
+{
+  "name": "agent-docs",
+  "version": "1.0.0",
+  "description": "Structured .agent folder documentation methodology for project knowledge management",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["documentation", "agent-docs", "onboarding", "knowledge-management"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "lsheep-marketplace",
+  "owner": {
+    "name": "lsheep"
+  },
+  "plugins": [
+    {
+      "name": "code-quality-suite",
+      "description": "Code quality analysis, dead code cleanup, SOLID refactoring, and beginner-friendly code explanations",
+      "source": "./plugins/code-quality-suite",
+      "category": "productivity"
+    },
+    {
+      "name": "code-review-router",
+      "description": "Intelligent code review routing - auto-selects Gemini CLI or OpenCode CLI based on change complexity",
+      "source": "./plugins/code-review-router",
+      "category": "productivity"
+    },
+    {
+      "name": "social-reader",
+      "description": "Fetch and read social media posts from X/Twitter and Threads",
+      "source": "./plugins/social-reader",
+      "category": "productivity"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "description": "UI/UX design intelligence - styles, colors, typography, charts, and UX guidelines",
+      "source": "./plugins/ui-ux-pro-max",
+      "category": "design"
+    },
+    {
+      "name": "english-coach",
+      "description": "Background English writing coach - checks grammar and phrasing in your messages via hook",
+      "source": "./plugins/english-coach",
+      "category": "learning"
+    },
+    {
+      "name": "agent-docs",
+      "description": "Structured .agent folder documentation methodology for project knowledge management",
+      "source": "./plugins/agent-docs",
+      "category": "productivity"
+    },
+    {
+      "name": "status-line",
+      "description": "Claude Code status line with model info, git branch, context usage, rate limits, and session tracking",
+      "source": "./plugins/status-line",
+      "category": "productivity"
+    }
+  ]
+}

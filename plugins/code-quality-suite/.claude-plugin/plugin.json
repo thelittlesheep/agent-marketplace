@@ -1,0 +1,11 @@
+{
+  "name": "code-quality-suite",
+  "version": "1.0.0",
+  "description": "Code quality analysis, dead code cleanup, SOLID refactoring, and beginner-friendly code explanations",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["code-quality", "code-explainer", "code-simplifier", "refactoring", "dead-code"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

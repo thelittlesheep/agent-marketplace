@@ -1,0 +1,11 @@
+{
+  "name": "code-review-router",
+  "version": "1.0.0",
+  "description": "Intelligent code review routing - auto-selects Gemini CLI or OpenCode CLI based on change complexity",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["code-review", "review-cli", "gemini", "opencode"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

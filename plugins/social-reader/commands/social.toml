@@ -1,0 +1,2 @@
+description = "Fetch and read social media posts via social-reader"
+prompt = """Run social-reader with the following arguments: {{args}}"""

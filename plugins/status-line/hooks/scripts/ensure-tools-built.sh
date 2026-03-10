@@ -1,0 +1,1 @@
+/Users/lsheep/coding/personal/agent-marketplace/shared/ensure-tools-built.sh

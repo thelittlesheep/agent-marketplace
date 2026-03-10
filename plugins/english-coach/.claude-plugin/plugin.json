@@ -1,0 +1,11 @@
+{
+  "name": "english-coach",
+  "version": "1.0.0",
+  "description": "Background English writing coach - checks grammar and phrasing in your messages via hook",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["english", "grammar", "writing", "learning"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

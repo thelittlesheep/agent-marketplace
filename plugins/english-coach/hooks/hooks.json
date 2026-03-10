@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/english-coach-hook.sh",
+            "name": "english-coach",
+            "description": "Background English grammar and phrasing check on assistant messages"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/ensure-tools-built.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

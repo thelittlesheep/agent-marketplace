@@ -1,0 +1,11 @@
+{
+  "name": "status-line",
+  "version": "1.0.0",
+  "description": "Claude Code status line with model info, git branch, context usage, rate limits, and session tracking",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["status-line", "session-tracker", "context", "rate-limit"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+.DS_Store
+
+# Compiled Go binaries
+plugins/*/tools/*/review-cli
+plugins/*/tools/*/social-reader
+plugins/*/tools/*/uiux-cli
+plugins/*/tools/*/english-coach
+plugins/*/tools/*/status-line
+
+# Codex CLI temp files
+.codex/

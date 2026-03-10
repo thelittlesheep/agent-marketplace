@@ -1,0 +1,11 @@
+{
+  "name": "ui-ux-pro-max",
+  "version": "1.0.0",
+  "description": "UI/UX design intelligence - styles, colors, typography, charts, and UX guidelines",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["uiux", "design", "ui", "ux", "tailwind", "color-palette"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}
