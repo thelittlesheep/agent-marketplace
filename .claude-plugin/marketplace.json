@@ -52,6 +52,12 @@
       "description": "Source-first adaptive research with inline citations and self-auditing verification",
       "source": "./plugins/deep-research",
       "category": "productivity"
+    },
+    {
+      "name": "maid-cafe",
+      "description": "Maid cafe persona system - mood display, voice hooks, /look command, time-based greetings, and persona switching",
+      "source": "./plugins/maid-cafe",
+      "category": "personality"
     }
   ]
 }

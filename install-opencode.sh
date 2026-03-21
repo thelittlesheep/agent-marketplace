@@ -51,13 +51,43 @@ install_opencode() {
     [ -f "$agent" ] && ln -sf "$agent" "$HOME/.config/opencode/agents/$(basename "$agent")"
   done
 
-  # Plugin (system prompt injection)
+  # Plugins
   mkdir -p "$HOME/.config/opencode/plugins"
-  ln -sf "$SCRIPT_DIR/runtimes/opencode/plugins/agent-marketplace.js" \
-    "$HOME/.config/opencode/plugins/agent-marketplace.js"
+  for plugin_js in "$SCRIPT_DIR"/runtimes/opencode/plugins/*.js; do
+    [ -f "$plugin_js" ] && ln -sf "$plugin_js" \
+      "$HOME/.config/opencode/plugins/$(basename "$plugin_js")"
+  done
 
   shopt -u nullglob
   echo "  OpenCode: skills + commands + agents + plugin installed"
+}
+
+# Maid-cafe: personas + active persona + voice files
+install_maid_cafe() {
+  local maid_dir="$HOME/.config/opencode/maid-cafe"
+
+  # Personas (symlink from CC plugin source)
+  shopt -s nullglob
+  mkdir -p "$maid_dir/personas"
+  for persona in "$SCRIPT_DIR"/plugins/maid-cafe/personas/*.md; do
+    ln -sf "$persona" "$maid_dir/personas/$(basename "$persona")"
+  done
+  shopt -u nullglob
+
+  # Default active persona (no-clobber)
+  if [ ! -f "$maid_dir/active-persona.md" ]; then
+    cp "$SCRIPT_DIR/plugins/maid-cafe/personas/codex.md" \
+      "$maid_dir/active-persona.md"
+  fi
+
+  # Voice files
+  local voice_zip="$SCRIPT_DIR/plugins/maid-cafe/assets/maid-voice.zip"
+  if [ ! -d "$maid_dir/maid-voice" ] && [ -f "$voice_zip" ]; then
+    mkdir -p "$maid_dir"
+    unzip -qo "$voice_zip" -d "$maid_dir" 2>/dev/null || true
+  fi
+
+  echo "  Maid-cafe: personas + voice installed"
 }
 
 echo "Installing agent-marketplace for OpenCode..."
@@ -68,6 +98,7 @@ echo ""
 
 echo "Linking OpenCode assets..."
 install_opencode || echo "  OpenCode: skipped (error during install)"
+install_maid_cafe || echo "  Maid-cafe: skipped (error during install)"
 echo ""
 
 echo "Done!"

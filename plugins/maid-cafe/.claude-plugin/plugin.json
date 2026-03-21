@@ -1,0 +1,11 @@
+{
+  "name": "maid-cafe",
+  "version": "1.0.0",
+  "description": "Maid cafe persona system - mood display, voice hooks, /look command, time-based greetings, and persona switching",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["maid", "persona", "mood", "voice", "greeting"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

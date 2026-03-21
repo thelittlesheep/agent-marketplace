@@ -1,0 +1,88 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/mood-parser.sh",
+            "name": "mood-parser",
+            "description": "Parse mood marker from response and write to ~/.claude/mood.txt"
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/maid-voice.sh Stop",
+            "name": "maid-voice-stop",
+            "description": "Play random maid voice clip on response completion",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/ensure-maid-setup.sh",
+            "name": "ensure-maid-setup",
+            "description": "One-time setup: inject spinnerVerbs into settings.json and download voice files"
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-greeting.sh",
+            "name": "session-greeting",
+            "description": "Time-based greeting instructions for session start",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/maid-voice.sh SessionStart",
+            "name": "maid-voice-session",
+            "description": "Play random maid voice clip on session start",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/maid-voice.sh UserPromptSubmit",
+            "name": "maid-voice-prompt",
+            "description": "Play random maid voice clip on user prompt",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/maid-voice.sh Notification",
+            "name": "maid-voice-notification",
+            "description": "Play random maid voice clip on notification",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/maid-voice.sh PermissionRequest",
+            "name": "maid-voice-permission",
+            "description": "Play random maid voice clip on permission request",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

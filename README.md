@@ -26,6 +26,7 @@ A plugin marketplace for AI coding assistants. Each plugin bundles skills, agent
 | **agent-docs** | `.agent/` documentation methodology for project context |
 | **status-line** | Terminal status bar with model info, context usage, rate limits, session time |
 | **deep-research** | Source-first research pipeline with inline citations and verification |
+| **maid-cafe** | Maid cafe persona - mood display, voice hooks, /look command, time-based greetings |
 
 ## Install
 
@@ -65,7 +66,8 @@ plugins/
 ├── english-coach/         # Go CLI + hook
 ├── agent-docs/            # skill + references
 ├── status-line/           # Go CLI + bash script
-└── deep-research/         # skill + references
+├── deep-research/         # skill + references
+└── maid-cafe/             # skill + commands + hooks (shell scripts)
 ```
 
 Each plugin follows the same layout: a `plugin.json` manifest under `.claude-plugin/`, with optional `skills/`, `agents/`, `tools/`, `commands/`, and `hooks/` directories.
@@ -88,3 +90,7 @@ agent-marketplace/
 | `status-line` | Claude Code only (depends on status bar API) |
 | Agent model selection | Each runtime manages its own model; agents use suggestions, not enforcement |
 | `validate-review-cli` hook | Claude Code only (OpenCode has no hook system) |
+| `maid-cafe` voice hooks | macOS only (depends on `afplay`); Claude Code only |
+| `maid-cafe` mood display | Requires `status-line` plugin (reads `~/.claude/mood.txt`) |
+| `maid-cafe` spinnerVerbs | Auto-injected on first session; requires `jq` |
+| `maid-cafe` voice files | Auto-downloaded on first session from `claudecafe.com` |

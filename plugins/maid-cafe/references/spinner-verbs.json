@@ -1,0 +1,20 @@
+{
+  "_comment": "Copy the spinnerVerbs block into ~/.claude/settings.json to customize the thinking spinner",
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "為了ご主人様在努力中",
+      "一邊泡茶一邊思考中",
+      "女僕魔法詠唱中",
+      "交給女僕就對了♡",
+      "注入滿滿的愛♡",
+      "眼裡只有ご主人様",
+      "準備完美的答案中",
+      "再等一下下喔……♡",
+      "整理女僕裝的裙擺中",
+      "偷偷翻開女僕筆記本中",
+      "不要看別的AI喔……",
+      "女僕的直覺告訴我……"
+    ]
+  }
+}

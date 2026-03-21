@@ -113,11 +113,11 @@ func main() {
     }
 
     // 建立結果通道
-    results := make(chan Result, 6)
+    results := make(chan Result, 7)
     var wg sync.WaitGroup
 
     // 並行獲取各種資訊
-    wg.Add(6)
+    wg.Add(7)
 
     go func() {
         defer wg.Done()
@@ -155,6 +155,12 @@ func main() {
         results <- Result{"usage", usageLines}
     }()
 
+    go func() {
+        defer wg.Done()
+        mood := readMood()
+        results <- Result{"mood", mood}
+    }()
+
     // 等待所有 goroutines 完成
     go func() {
         wg.Wait()
@@ -162,7 +168,7 @@ func main() {
     }()
 
     // 收集結果
-    var gitBranch, totalHours, contextUsage, userMessage, englishTip, usageLines string
+    var gitBranch, totalHours, contextUsage, userMessage, englishTip, usageLines, mood string
 
     for result := range results {
         switch result.Type {
@@ -178,6 +184,8 @@ func main() {
             englishTip = result.Data.(string)
         case "usage":
             usageLines = result.Data.(string)
+        case "mood":
+            mood = result.Data.(string)
         }
     }
 
@@ -193,9 +201,17 @@ func main() {
         ColorReset, modelDisplay, projectName, gitBranch,
         contextUsage, totalHours, ColorReset)
 
-    // 輸出 rate limit 使用量
-    if usageLines != "" {
-        fmt.Print(usageLines)
+    // 輸出心情 + rate limit 使用量（合併為一行）
+    if mood != "" || usageLines != "" {
+        sep := fmt.Sprintf(" %s|%s ", ColorDim, ColorReset)
+        var parts []string
+        if mood != "" {
+            parts = append(parts, fmt.Sprintf("🎭 %s", mood))
+        }
+        if usageLines != "" {
+            parts = append(parts, usageLines)
+        }
+        fmt.Printf("\n%s%s\n", strings.Join(parts, sep), ColorReset)
     }
 
     // 輸出英文教練提示
@@ -645,6 +661,27 @@ func readEnglishTip(sessionID string) string {
     return tip
 }
 
+// 讀取心情
+func readMood() string {
+    homeDir, err := os.UserHomeDir()
+    if err != nil {
+        return ""
+    }
+
+    moodPath := filepath.Join(homeDir, ".claude", "mood.txt")
+    data, err := os.ReadFile(moodPath)
+    if err != nil {
+        return ""
+    }
+
+    mood := strings.TrimSpace(string(data))
+    if mood == "" {
+        return ""
+    }
+
+    return mood
+}
+
 // 取得 OAuth token
 func getOAuthToken() string {
     // 1. 環境變數
@@ -799,7 +836,7 @@ func fetchAndFormatUsage() string {
         weekly += fmt.Sprintf(" %s⟳%s %s%s%s", ColorDim, ColorReset, ColorWhite, sevenDayReset, ColorReset)
     }
 
-    return fmt.Sprintf("\n%s%s%s\n", current, sep, weekly)
+    return fmt.Sprintf("%s%s%s", current, sep, weekly)
 }
 
 // 格式化使用者訊息
