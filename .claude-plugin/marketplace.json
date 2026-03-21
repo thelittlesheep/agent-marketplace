@@ -46,6 +46,12 @@
       "description": "Claude Code status line with model info, git branch, context usage, rate limits, and session tracking",
       "source": "./plugins/status-line",
       "category": "productivity"
+    },
+    {
+      "name": "deep-research",
+      "description": "Source-first adaptive research with inline citations and self-auditing verification",
+      "source": "./plugins/deep-research",
+      "category": "productivity"
     }
   ]
 }

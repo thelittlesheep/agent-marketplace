@@ -25,6 +25,7 @@ A plugin marketplace for AI coding assistants. Each plugin bundles skills, agent
 | **english-coach** | Background grammar checker that runs as a hook |
 | **agent-docs** | `.agent/` documentation methodology for project context |
 | **status-line** | Terminal status bar with model info, context usage, rate limits, session time |
+| **deep-research** | Source-first research pipeline with inline citations and verification |
 
 ## Install
 
@@ -63,7 +64,8 @@ plugins/
 ├── ui-ux-pro-max/         # skill + Go CLI + CSV data
 ├── english-coach/         # Go CLI + hook
 ├── agent-docs/            # skill + references
-└── status-line/           # Go CLI + bash script
+├── status-line/           # Go CLI + bash script
+└── deep-research/         # skill + references
 ```
 
 Each plugin follows the same layout: a `plugin.json` manifest under `.claude-plugin/`, with optional `skills/`, `agents/`, `tools/`, `commands/`, and `hooks/` directories.

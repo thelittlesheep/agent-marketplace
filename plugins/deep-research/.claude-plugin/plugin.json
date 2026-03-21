@@ -1,0 +1,11 @@
+{
+  "name": "deep-research",
+  "version": "1.0.0",
+  "description": "Source-first adaptive research with inline citations and self-auditing verification",
+  "author": {
+    "name": "lsheep"
+  },
+  "keywords": ["research", "fact-check", "verification", "citations"],
+  "repository": "https://github.com/lsheep/agent-marketplace",
+  "license": "MIT"
+}

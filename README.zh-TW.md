@@ -25,6 +25,7 @@
 | **english-coach** | 以 hook 形式在背景執行的英文文法檢查 |
 | **agent-docs** | `.agent/` 文件方法論，維護專案上下文 |
 | **status-line** | 終端機狀態列，顯示模型資訊、context 用量、rate limit、session 時間 |
+| **deep-research** | Source-first 研究流程，附 inline 引用與自我驗證 |
 
 ## 安裝
 
@@ -63,7 +64,8 @@ plugins/
 ├── ui-ux-pro-max/         # skill + Go CLI + CSV data
 ├── english-coach/         # Go CLI + hook
 ├── agent-docs/            # skill + references
-└── status-line/           # Go CLI + bash script
+├── status-line/           # Go CLI + bash script
+└── deep-research/         # skill + references
 ```
 
 每個 plugin 遵循相同結構：`.claude-plugin/` 下放 `plugin.json` manifest，搭配選用的 `skills/`、`agents/`、`tools/`、`commands/`、`hooks/` 目錄。
